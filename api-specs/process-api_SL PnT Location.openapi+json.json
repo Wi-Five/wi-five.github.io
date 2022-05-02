@@ -1,0 +1,576 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "process-api/SL PnT Location",
+        "description": "",
+        "version": "v2"
+    },
+    "servers": [
+        {
+            "url": "https://stena-dev.azure-api.net/ports-and-terminals/track-and-trace/location/v2"
+        }
+    ],
+    "paths": {
+        "/checkpoint-request": {
+            "post": {
+                "summary": "CheckPoint Request",
+                "description": "Receives a CheckPointRequest message and returns a CheckPointResponse message. Formerly known as Permit to Pass.",
+                "operationId": "checkpoint",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "description": "Indicates the media type of the resource",
+                        "required": true,
+                        "schema": {
+                            "enum": [
+                                "application/json"
+                            ],
+                            "type": "string",
+                            "default": "application/json"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Your API-key provided by Stena Line",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CheckPoint-Request"
+                            },
+                            "example": {
+                                "checkPointRequest": {
+                                    "vehicle": {
+                                        "type": "TR",
+                                        "rearRegNo": "String",
+                                        "frontRegNo": "String",
+                                        "trailerDetected": "Yes"
+                                    },
+                                    "requestID": "String",
+                                    "requestSender": "String",
+                                    "requestDateTime": "2001-12-17T09:30:47.0000000+00:00",
+                                    "requestReference": "String",
+                                    "requestTypeCodes": [
+                                        "PermitToPass"
+                                    ],
+                                    "requestOriginator": "String",
+                                    "checkPointLocation": {
+                                        "address": {
+                                            "name": "Port of Trelleborg",
+                                            "address1": "Norra Nyhamnsgatan 5",
+                                            "address2": "",
+                                            "postCode": "23161",
+                                            "city": "Trelleborg",
+                                            "stateRegion": "",
+                                            "country": "Sweden"
+                                        },
+                                        "checkPoint": "in-001",
+                                        "facilityCode": "String",
+                                        "locationName": "String",
+                                        "UNLocationCode": "PLGDY",
+                                        "facilityCodeListProvider": "SLFT"
+                                    },
+                                    "requestReferenceType": "String"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": null
+                    }
+                }
+            }
+        },
+        "/checkpoint-event": {
+            "post": {
+                "summary": "CheckPoint Event",
+                "description": "Formerly known as GatePassage",
+                "operationId": "checkpoint-passage",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "description": "Indicates the media type of the resource",
+                        "required": true,
+                        "schema": {
+                            "enum": [
+                                "application/json"
+                            ],
+                            "type": "string",
+                            "default": "application/json"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Your API-key provided by Stena Line",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CheckPoint-Passage"
+                            },
+                            "example": {
+                                "checkPointRequest": {
+                                    "vehicle": {
+                                        "type": "TR",
+                                        "rearRegNo": "String",
+                                        "frontRegNo": "String",
+                                        "trailerDetected": "Yes"
+                                    },
+                                    "requestID": "String",
+                                    "requestSender": "String",
+                                    "requestDateTime": "2001-12-17T09:30:47.0000000+00:00",
+                                    "requestReference": "String",
+                                    "requestTypeCodes": [
+                                        "PermitToPass"
+                                    ],
+                                    "requestOriginator": "String",
+                                    "checkPointLocation": {
+                                        "address": {
+                                            "name": "Port of Trelleborg",
+                                            "address1": "Norra Nyhamnsgatan 5",
+                                            "address2": "",
+                                            "postCode": "23161",
+                                            "city": "Trelleborg",
+                                            "stateRegion": "",
+                                            "country": "Sweden"
+                                        },
+                                        "checkPoint": "in-001",
+                                        "facilityCode": "String",
+                                        "locationName": "String",
+                                        "UNLocationCode": "PLGDY",
+                                        "facilityCodeListProvider": "SLFT"
+                                    },
+                                    "requestReferenceType": "String"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": null
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "CheckPoint-Passage": {
+                "type": "object",
+                "properties": {
+                    "checkPointEvent": {
+                        "type": "object",
+                        "properties": {
+                            "eventDateTime": {
+                                "type": "string"
+                            },
+                            "eventTypeCode": {
+                                "type": "string"
+                            },
+                            "eventSender": {
+                                "type": "string"
+                            },
+                            "eventOriginator": {
+                                "type": "string"
+                            },
+                            "unit": {
+                                "type": "object",
+                                "properties": {
+                                    "primaryId": {
+                                        "type": "string"
+                                    },
+                                    "secondaryId": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "referenceContext": {
+                                "type": "object",
+                                "properties": {
+                                    "contextType": {
+                                        "type": "string"
+                                    },
+                                    "contextTypeGroup": {
+                                        "type": "string"
+                                    },
+                                    "contextItem": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "vehicle": {
+                                "type": "object",
+                                "properties": {
+                                    "frontRegNo": {
+                                        "type": "string"
+                                    },
+                                    "rearRegNo": {
+                                        "type": "string"
+                                    },
+                                    "trailerDetected": {
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "checkPointLocation": {
+                                "type": "object",
+                                "properties": {
+                                    "UNLocationCode": {
+                                        "type": "string"
+                                    },
+                                    "facilityCode": {
+                                        "type": "string"
+                                    },
+                                    "facilityCodeListProvider": {
+                                        "type": "string"
+                                    },
+                                    "locationName": {
+                                        "type": "string"
+                                    },
+                                    "address": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "address1": {
+                                                "type": "string"
+                                            },
+                                            "address2": {
+                                                "type": "string"
+                                            },
+                                            "postCode": {
+                                                "type": "string"
+                                            },
+                                            "city": {
+                                                "type": "string"
+                                            },
+                                            "stateRegion": {
+                                                "type": "string"
+                                            },
+                                            "country": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "latitude": {
+                                        "type": "integer"
+                                    },
+                                    "longitude": {
+                                        "type": "integer"
+                                    },
+                                    "checkPoint": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "measurements": {
+                                "type": "array",
+                                "items": {
+                                    "required": [
+                                        "type",
+                                        "value"
+                                    ],
+                                    "type": "object",
+                                    "properties": {
+                                        "type": {
+                                            "type": "string"
+                                        },
+                                        "value": {
+                                            "type": "number"
+                                        }
+                                    }
+                                }
+                            },
+                            "attachments": {
+                                "type": "array",
+                                "items": {
+                                    "required": [
+                                        "url",
+                                        "description",
+                                        "access ",
+                                        "filename",
+                                        "size",
+                                        "mime"
+                                    ],
+                                    "type": "object",
+                                    "properties": {
+                                        "url": {
+                                            "type": "string"
+                                        },
+                                        "description": {
+                                            "type": "string"
+                                        },
+                                        "access ": {
+                                            "type": "string"
+                                        },
+                                        "filename": {
+                                            "type": "string"
+                                        },
+                                        "size": {
+                                            "type": "integer"
+                                        },
+                                        "mime": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "CheckPoint-Request": {
+                "required": [
+                    "checkPointRequest"
+                ],
+                "type": "object",
+                "properties": {
+                    "checkPointRequest": {
+                        "required": [
+                            "requestDateTime",
+                            "requestTypeCodes",
+                            "requestSender",
+                            "requestOriginator",
+                            "requestReferenceType",
+                            "requestReference",
+                            "checkPointLocation"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "requestDateTime": {
+                                "type": "string",
+                                "description": "ISO8601-formatted date and time (including UTC-offset) for when the request was initiated. ",
+                                "format": "date-time"
+                            },
+                            "requestTypeCodes": {
+                                "maxItems": 2,
+                                "minItems": 1,
+                                "uniqueItems": true,
+                                "type": "array",
+                                "items": {
+                                    "enum": [
+                                        "PermitToPass",
+                                        "YardAllocation"
+                                    ],
+                                    "type": "string",
+                                    "additionalProperties": false
+                                },
+                                "description": "Describes the type of transaction"
+                            },
+                            "requestSender": {
+                                "minLength": 1,
+                                "type": "string",
+                                "description": "Stena Line Unique Identifier of the system sending the request to Stena Line. Will be assigned to ports by Stena Line."
+                            },
+                            "requestOriginator": {
+                                "minLength": 1,
+                                "type": "string",
+                                "description": "Originator of the event, used for traceability. Typically contains the user id of the administrator or ID of the machine who triggered the event. Should not contain personal data according to GDPR privacy."
+                            },
+                            "requestID": {
+                                "type": "string",
+                                "description": "Unique identifier for the request."
+                            },
+                            "requestReferenceType": {
+                                "minLength": 1,
+                                "type": "string"
+                            },
+                            "requestReference": {
+                                "minLength": 1,
+                                "type": "string"
+                            },
+                            "checkPointLocation": {
+                                "required": [
+                                    "UNLocationCode",
+                                    "facilityCode",
+                                    "facilityCodeListProvider"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "UNLocationCode": {
+                                        "maxLength": 5,
+                                        "minLength": 5,
+                                        "type": "string",
+                                        "description": "The UN/LOCODE which the facility resides in"
+                                    },
+                                    "facilityCode": {
+                                        "minLength": 1,
+                                        "type": "string",
+                                        "description": "Unique Code for the terminal within the facilityCodeListProvider scope"
+                                    },
+                                    "facilityCodeListProvider": {
+                                        "type": "string",
+                                        "description": "Provider of the Facility Code (SLFT = Stena Line Freight)"
+                                    },
+                                    "locationName": {
+                                        "type": "string"
+                                    },
+                                    "address": {
+                                        "required": [
+                                            "address1",
+                                            "country"
+                                        ],
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "address1": {
+                                                "minLength": 1,
+                                                "type": "string"
+                                            },
+                                            "address2": {
+                                                "type": "string"
+                                            },
+                                            "postCode": {
+                                                "type": "string"
+                                            },
+                                            "city": {
+                                                "type": "string"
+                                            },
+                                            "stateRegion": {
+                                                "type": "string"
+                                            },
+                                            "country": {
+                                                "minLength": 1,
+                                                "type": "string"
+                                            }
+                                        },
+                                        "additionalProperties": false,
+                                        "description": "Street/Postal Address of the Gate  (if no public road the address for leaving the public road to be used)"
+                                    },
+                                    "latitude": {
+                                        "maximum": 90,
+                                        "minimum": -90,
+                                        "type": "number",
+                                        "description": "South = negative, north = posttive  (-90.0>=latitiude>=90.0)"
+                                    },
+                                    "longitude": {
+                                        "maximum": 180,
+                                        "minimum": -180,
+                                        "type": "number",
+                                        "description": "West = negative, East = posttive  (-180.0>=longitude>=180.0"
+                                    },
+                                    "checkPoint": {
+                                        "minLength": 1,
+                                        "type": "string",
+                                        "description": "Unique within unLocationCode+Facilitycode-scope. Property is mandatory for PermitToPass."
+                                    }
+                                },
+                                "additionalProperties": false,
+                                "description": "The physical location at which the event took place"
+                            },
+                            "vehicle": {
+                                "type": "object",
+                                "properties": {
+                                    "frontRegNo": {
+                                        "type": "string",
+                                        "description": "Registration number from the front of the vehicle."
+                                    },
+                                    "rearRegNo": {
+                                        "type": "string",
+                                        "description": "Registration number from the back of the vehicle."
+                                    },
+                                    "trailerDetected": {
+                                        "enum": [
+                                            "Yes",
+                                            "No",
+                                            "Unknown"
+                                        ],
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "description": "Typecodes from Stena Line FreightLink-system."
+                                    }
+                                },
+                                "additionalProperties": false
+                            }
+                        },
+                        "additionalProperties": false
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Schema for CheckPointRequest (2022-04-19)",
+                "example": {
+                    "checkPointRequest": {
+                        "vehicle": {
+                            "type": "TR",
+                            "rearRegNo": "String",
+                            "frontRegNo": "String",
+                            "trailerDetected": "Yes"
+                        },
+                        "requestID": "String",
+                        "requestSender": "String",
+                        "requestDateTime": "2001-12-17T09:30:47.0000000+00:00",
+                        "requestReference": "String",
+                        "requestTypeCodes": [
+                            "PermitToPass"
+                        ],
+                        "requestOriginator": "String",
+                        "checkPointLocation": {
+                            "address": {
+                                "name": "Port of Trelleborg",
+                                "address1": "Norra Nyhamnsgatan 5",
+                                "address2": "",
+                                "postCode": "23161",
+                                "city": "Trelleborg",
+                                "stateRegion": "",
+                                "country": "Sweden"
+                            },
+                            "checkPoint": "in-001",
+                            "facilityCode": "String",
+                            "locationName": "String",
+                            "UNLocationCode": "PLGDY",
+                            "facilityCodeListProvider": "SLFT"
+                        },
+                        "requestReferenceType": "String"
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "apiKeyHeader": {
+                "type": "apiKey",
+                "name": "Ocp-Apim-Subscription-Key",
+                "in": "header"
+            },
+            "apiKeyQuery": {
+                "type": "apiKey",
+                "name": "subscription-key",
+                "in": "query"
+            }
+        }
+    },
+    "security": [
+        {
+            "apiKeyHeader": []
+        },
+        {
+            "apiKeyQuery": []
+        }
+    ]
+}
