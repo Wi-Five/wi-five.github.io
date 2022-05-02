@@ -9,9 +9,7 @@ on:
     branches:
     - main
     
-permissions:
-  contents: read
-  pull-requests: write
+permissions: write-all
   
 jobs:
   build_and_publish_job:
