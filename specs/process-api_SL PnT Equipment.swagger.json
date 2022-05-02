@@ -1,0 +1,1876 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "process-api/SL PnT Equipment",
+        "version": "v2",
+        "description": "Track and Trace Equipment Api"
+    },
+    "host": "stena-test.azure-api.net",
+    "basePath": "/ports-and-terminals/track-and-trace/equipment/v2",
+    "schemes": [
+        "https"
+    ],
+    "securityDefinitions": {
+        "apiKeyHeader": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        },
+        "apiKeyQuery": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "query"
+        }
+    },
+    "security": [
+        {
+            "apiKeyHeader": []
+        },
+        {
+            "apiKeyQuery": []
+        }
+    ],
+    "paths": {
+        "/gate-out": {
+            "post": {
+                "description": "Gate Out",
+                "operationId": "gateout",
+                "summary": "Gate Out",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "required": true,
+                        "type": "string",
+                        "default": "application/json",
+                        "enum": [
+                            "application/json"
+                        ]
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Your API-key provided by Stena Line",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "gate-out",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/Gate-out"
+                        }
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Gate Out event will be processed by Stena Line"
+                    }
+                }
+            }
+        },
+        "/measurement-take": {
+            "post": {
+                "description": "Measurement Take",
+                "operationId": "measurementtake",
+                "summary": "Measurement Take",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "required": true,
+                        "type": "string",
+                        "default": "application/json",
+                        "enum": [
+                            "application/json"
+                        ]
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Your API-key provided by Stena Line",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "measurement-Take",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/Measurement-Take"
+                        }
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Measurement Take event will be processed by Stena Line"
+                    }
+                }
+            }
+        },
+        "/load": {
+            "post": {
+                "description": "load event",
+                "operationId": "load",
+                "summary": "Load",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "required": true,
+                        "type": "string",
+                        "default": "application/json",
+                        "enum": [
+                            "application/json"
+                        ]
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Your API-key provided by Stena Line",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "load",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/Load"
+                        }
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Load event will be processed by Stena Line"
+                    }
+                }
+            }
+        },
+        "/unload": {
+            "post": {
+                "description": "Unload event",
+                "operationId": "unload",
+                "summary": "Unload",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "required": true,
+                        "type": "string",
+                        "default": "application/json",
+                        "enum": [
+                            "application/json"
+                        ]
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Your API-key provided by Stena Line",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "unload",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/Unload"
+                        }
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Unload event will be processed by Stena Line"
+                    }
+                }
+            }
+        },
+        "/ready-for-pickup": {
+            "post": {
+                "description": "Ready for Pickup",
+                "operationId": "readyforpickup",
+                "summary": "Ready for Pickup",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "required": true,
+                        "type": "string",
+                        "default": "application/json",
+                        "enum": [
+                            "application/json"
+                        ]
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Your API-key provided by Stena Line",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "ready-For-Pickup",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/Ready-For-Pickup"
+                        }
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ready for Pickup event will be processed by Stena Line"
+                    }
+                }
+            }
+        },
+        "/gate-in": {
+            "post": {
+                "description": "Gate In v2",
+                "operationId": "gate-in",
+                "summary": "Gate In",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "required": true,
+                        "type": "string",
+                        "default": "application/json",
+                        "enum": [
+                            "application/json"
+                        ]
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Your API-key provided by Stena Line",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "gate-in",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/Gate-in"
+                        }
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Gate In event will be processed by Stena Line"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Gate-in": {
+            "title": "GateIn",
+            "description": "Schema for GateIn v2 (2022-04-30)",
+            "required": [
+                "equipmentEvent"
+            ],
+            "type": "object",
+            "properties": {
+                "equipmentEvent": {
+                    "required": [
+                        "eventDateTime",
+                        "eventTypeCode",
+                        "eventSender",
+                        "eventOriginator",
+                        "bookingNumber",
+                        "eventLocation"
+                    ],
+                    "type": "object",
+                    "properties": {
+                        "eventDateTime": {
+                            "format": "date-time",
+                            "description": "Date and time when event was first captured according to ISO8601 (including timezone offset from UTC and with millisecond resolution).",
+                            "type": "string"
+                        },
+                        "eventTypeCode": {
+                            "description": "Describes the type of transaction",
+                            "type": "string"
+                        },
+                        "eventSender": {
+                            "description": "Stena Line Unique Identifier of the system sending the event to Stena Line. Will be assigned to ports by Stena Line.",
+                            "minLength": 1,
+                            "type": "string"
+                        },
+                        "eventOriginator": {
+                            "description": "Originator of the event, used for traceability. Typically contains the user ID of the administrator or ID of the machine who triggered the event. Unique within the eventSender scope. Should not contain personal data according to GDPR privacy.",
+                            "minLength": 1,
+                            "type": "string"
+                        },
+                        "bookingNumber": {
+                            "description": "Stena Line Freight Booking Number",
+                            "minLength": 1,
+                            "type": "string"
+                        },
+                        "unit": {
+                            "description": "Identifier of the unit being shipped",
+                            "required": [
+                                "primaryId"
+                            ],
+                            "type": "object",
+                            "properties": {
+                                "primaryId": {
+                                    "description": "Primary identifier of the unit, i.e. vehicle reg, trailer fleet number, VIN, ILU-code or other",
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "secondaryId": {
+                                    "description": "Additional identifier of the unit i(if available), i.e vehicle reg, trailer fleet number, VIN, ILU-code or other",
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "eventLocation": {
+                            "description": "The physical location at which the event took place",
+                            "required": [
+                                "UNLocationCode",
+                                "facilityCode",
+                                "facilityCodeListProvider",
+                                "gate"
+                            ],
+                            "type": "object",
+                            "properties": {
+                                "UNLocationCode": {
+                                    "description": "The UN/LOCODE (without whitespace) which the facility resides in ",
+                                    "maxLength": 5,
+                                    "minLength": 5,
+                                    "type": "string"
+                                },
+                                "facilityCode": {
+                                    "description": "Unique Code for the terminal within the facilityCodeListProvider scope",
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "facilityCodeListProvider": {
+                                    "description": "Provider of the Facility Code (SLFT = Stena Line Freight)",
+                                    "type": "string"
+                                },
+                                "locationName": {
+                                    "description": "Name of location according to the sender of the event.",
+                                    "type": "string"
+                                },
+                                "address": {
+                                    "description": "Street/postal address of the main gate  (if no public road - the address for leaving the public road to be used)",
+                                    "required": [
+                                        "address1",
+                                        "country"
+                                    ],
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "address1": {
+                                            "description": "Typically Street Address",
+                                            "type": "string"
+                                        },
+                                        "address2": {
+                                            "description": "Additional addresslines (if necessary)",
+                                            "type": "string"
+                                        },
+                                        "postCode": {
+                                            "type": "string"
+                                        },
+                                        "city": {
+                                            "type": "string"
+                                        },
+                                        "stateRegion": {
+                                            "type": "string"
+                                        },
+                                        "country": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "latitude": {
+                                    "description": "South = negative, north = positive  (-90.0>=latitiude>=90.0)",
+                                    "maximum": 90,
+                                    "minimum": -90,
+                                    "type": "number"
+                                },
+                                "longitude": {
+                                    "description": "West = negative, East = positive  (-180.0>=longitude>=180.0",
+                                    "maximum": 180,
+                                    "minimum": -180,
+                                    "type": "number"
+                                },
+                                "yard": {
+                                    "description": "Physcial location/area in the yard within the Facility where the unit will be placed past the gateIn",
+                                    "type": "object"
+                                },
+                                "gate": {
+                                    "description": "Unique within UNLocationCode+Facilitycode-scope",
+                                    "minLength": 1,
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "attachments": {
+                            "description": "Applicable attachments such as images (proof or identification).",
+                            "type": "array",
+                            "items": {
+                                "required": [
+                                    "url"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "url": {
+                                        "description": "URL from which the file can be downloaded",
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "description": "Description of file",
+                                        "type": "string"
+                                    },
+                                    "access ": {
+                                        "description": "By what means can the url be accessed ( open = access from internet only by using URL, restricted= some kind of accessrestriction such as password is required for access)",
+                                        "enum": [
+                                            "open",
+                                            "restricted"
+                                        ],
+                                        "type": "string"
+                                    },
+                                    "filename": {
+                                        "description": "filename including file extension",
+                                        "type": "string"
+                                    },
+                                    "size": {
+                                        "description": "Filesize in kilobytes",
+                                        "type": "integer"
+                                    },
+                                    "mime": {
+                                        "description": "File MIME-type ",
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "remarks": {
+                            "description": "Remarks or comments associated with the event. Typically an external booking number",
+                            "type": "string"
+                        },
+                        "vehicle": {
+                            "description": "Information about the vehicle passing the gate",
+                            "type": "object",
+                            "properties": {
+                                "rearRegNo": {
+                                    "description": "Rear Vehicle License Plate Number as detected during the gate event",
+                                    "type": "string"
+                                },
+                                "frontRegNo": {
+                                    "description": "Front Vehicle License Plate Number as detected during the Gate event",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "example": {
+                "equipmentEvent": {
+                    "eventDateTime": "2021-03-26T10:34:25.235+00:00",
+                    "eventTypeCode": "GateIn",
+                    "eventSender": "SL-PT-PortOfTrelleborg",
+                    "eventOriginator": "{0001-1234-5678}",
+                    "bookingNumber": "1234567",
+                    "unit": {
+                        "primaryId": "HKPB1121199",
+                        "secondaryId": "String"
+                    },
+                    "eventLocation": {
+                        "UNLocationCode": "SETRG",
+                        "facilityCode": "TREL",
+                        "facilityCodeListProvider": "SLFT",
+                        "locationName": "Port of Trelleborg",
+                        "address": {
+                            "name": "Main Gate",
+                            "address1": "Norra Nyhamnsgatan 5",
+                            "address2": "",
+                            "postCode": "23161",
+                            "city": "Trelleborg",
+                            "stateRegion": "",
+                            "country": "Sweden"
+                        },
+                        "latitude": -90,
+                        "longitude": -180,
+                        "yard": {
+                            "lane": "String"
+                        },
+                        "gate": "Gate001"
+                    },
+                    "attachments": [
+                        {
+                            "url": "http://company.com/images/smartgate/pic0001.jpg",
+                            "description": "Right Side 2021-03-26 11:34",
+                            "access ": "open",
+                            "filename": "pic0001.jpg",
+                            "size": 12345,
+                            "mime": "image/jpeg"
+                        }
+                    ],
+                    "remarks": "Lorem Ipsum",
+                    "vehicle": {
+                        "rearRegNo": "CBA321",
+                        "frontRegNo": "ABC123"
+                    }
+                }
+            }
+        },
+        "Gate-out": {
+            "description": "Schema for GateOut v2 (2022-04-30)",
+            "required": [
+                "equipmentEvent"
+            ],
+            "type": "object",
+            "properties": {
+                "equipmentEvent": {
+                    "required": [
+                        "eventDateTime",
+                        "eventTypeCode",
+                        "eventSender",
+                        "eventOriginator",
+                        "bookingNumber",
+                        "eventLocation"
+                    ],
+                    "type": "object",
+                    "properties": {
+                        "eventDateTime": {
+                            "format": "date-time",
+                            "description": "Date and time when event was first captured according to ISO8601 (including timezone offset from UTC and with millisecond resolution).",
+                            "type": "string"
+                        },
+                        "eventTypeCode": {
+                            "description": "Describes the type of transaction",
+                            "type": "string"
+                        },
+                        "eventSender": {
+                            "description": "Stena Line Unique Identifier of the system sending the event to Stena Line. Will be assigned to ports by Stena Line.",
+                            "minLength": 1,
+                            "type": "string"
+                        },
+                        "eventOriginator": {
+                            "description": "Originator of the event, used for traceability. Typically contains the user ID of the administrator or ID of the machine who triggered the event. Unique within the eventSender scope. Should not contain personal data according to GDPR privacy.",
+                            "minLength": 1,
+                            "type": "string"
+                        },
+                        "bookingNumber": {
+                            "description": "Stena Line Freight Booking Number",
+                            "minLength": 1,
+                            "type": "string"
+                        },
+                        "unit": {
+                            "description": "Identifier of the unit being shipped",
+                            "required": [
+                                "primaryId"
+                            ],
+                            "type": "object",
+                            "properties": {
+                                "primaryId": {
+                                    "description": "Primary identifier of the unit, i.e. vehicle reg, trailer fleet number, VIN, ILU-code or other",
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "secondaryId": {
+                                    "description": "Additional identifier of the unit i(if available), i.e vehicle reg, trailer fleet number, VIN, ILU-code or other",
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "eventLocation": {
+                            "description": "The physical location at which the event took place",
+                            "required": [
+                                "UNLocationCode",
+                                "facilityCode",
+                                "facilityCodeListProvider",
+                                "gate"
+                            ],
+                            "type": "object",
+                            "properties": {
+                                "UNLocationCode": {
+                                    "description": "The UN/LOCODE (without whitespace) which the facility resides in ",
+                                    "maxLength": 5,
+                                    "minLength": 5,
+                                    "type": "string"
+                                },
+                                "facilityCode": {
+                                    "description": "Unique Code for the terminal within the facilityCodeListProvider scope",
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "facilityCodeListProvider": {
+                                    "description": "Provider of the Facility Code (SLFT = Stena Line Freight)",
+                                    "type": "string"
+                                },
+                                "locationName": {
+                                    "description": "Name of location according to the sender of the event.",
+                                    "type": "string"
+                                },
+                                "address": {
+                                    "description": "Street/postal address of the main gate  (if no public road - the address for leaving the public road to be used)",
+                                    "required": [
+                                        "address1",
+                                        "country"
+                                    ],
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "address1": {
+                                            "description": "Typically Street Address",
+                                            "type": "string"
+                                        },
+                                        "address2": {
+                                            "description": "Additional addresslines (if necessary)",
+                                            "type": "string"
+                                        },
+                                        "postCode": {
+                                            "type": "string"
+                                        },
+                                        "city": {
+                                            "type": "string"
+                                        },
+                                        "stateRegion": {
+                                            "type": "string"
+                                        },
+                                        "country": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "latitude": {
+                                    "description": "South = negative, north = positive  (-90.0>=latitiude>=90.0)",
+                                    "maximum": 90,
+                                    "minimum": -90,
+                                    "type": "number"
+                                },
+                                "longitude": {
+                                    "description": "West = negative, East = positive  (-180.0>=longitude>=180.0",
+                                    "maximum": 180,
+                                    "minimum": -180,
+                                    "type": "number"
+                                },
+                                "gate": {
+                                    "description": "Unique within UNLocationCode+Facilitycode-scope",
+                                    "minLength": 1,
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "attachments": {
+                            "description": "Applicable attachments such as images (proof or identification).",
+                            "type": "array",
+                            "items": {
+                                "required": [
+                                    "url"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "url": {
+                                        "description": "URL from which the file can be downloaded",
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "description": "Description of file",
+                                        "type": "string"
+                                    },
+                                    "access ": {
+                                        "description": "By what means can the url be accessed ( open = access from internet only by using URL, restricted= some kind of accessrestriction such as password is required for access)",
+                                        "enum": [
+                                            "open",
+                                            "restricted"
+                                        ],
+                                        "type": "string"
+                                    },
+                                    "filename": {
+                                        "description": "filename including file extension",
+                                        "type": "string"
+                                    },
+                                    "size": {
+                                        "description": "Filesize in kilobytes",
+                                        "type": "integer"
+                                    },
+                                    "mime": {
+                                        "description": "File MIME-type ",
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "remarks": {
+                            "description": "Remarks or comments associated with the event. Typically an external booking number",
+                            "type": "string"
+                        },
+                        "vehicle": {
+                            "description": "Information about the vehicle passing the gate",
+                            "type": "object",
+                            "properties": {
+                                "rearRegNo": {
+                                    "description": "Rear Vehicle License Plate Number as detected during the gate event",
+                                    "type": "string"
+                                },
+                                "frontRegNo": {
+                                    "description": "Front Vehicle License Plate Number as detected during the Gate event",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "example": {
+                "equipmentEvent": {
+                    "eventDateTime": "2021-03-26T10:34:25.235+00:00",
+                    "eventTypeCode": "GateOut",
+                    "eventSender": "SL-PT-PortOfTrelleborg",
+                    "eventOriginator": "{0001-1234-5678}",
+                    "bookingNumber": "1234567",
+                    "unit": {
+                        "primaryId": "HKPB1121199",
+                        "secondaryId": "String"
+                    },
+                    "eventLocation": {
+                        "UNLocationCode": "SETRG",
+                        "facilityCode": "TREL",
+                        "facilityCodeListProvider": "SLFT",
+                        "locationName": "Port of Trelleborg",
+                        "address": {
+                            "name": "Main Gate",
+                            "address1": "Norra Nyhamnsgatan 5",
+                            "address2": "",
+                            "postCode": "23161",
+                            "city": "Trelleborg",
+                            "stateRegion": "",
+                            "country": "Sweden"
+                        },
+                        "latitude": -90,
+                        "longitude": -180,
+                        "gate": "Gate001"
+                    },
+                    "attachments": [
+                        {
+                            "url": "http://company.com/images/smartgate/pic0001.jpg",
+                            "description": "Right Side 2021-03-26 11:34",
+                            "access ": "open",
+                            "filename": "pic0001.jpg",
+                            "size": 12345,
+                            "mime": "image/jpeg"
+                        }
+                    ],
+                    "remarks": "Lorem Ipsum",
+                    "vehicle": {
+                        "rearRegNo": "CBA321",
+                        "frontRegNo": "ABC123"
+                    }
+                }
+            }
+        },
+        "Load": {
+            "description": "Schema for Load v2 (2022-04-30)",
+            "required": [
+                "equipmentEvent"
+            ],
+            "type": "object",
+            "properties": {
+                "equipmentEvent": {
+                    "required": [
+                        "eventDateTime",
+                        "eventTypeCode",
+                        "eventSender",
+                        "eventOriginator",
+                        "bookingNumber",
+                        "eventLocation",
+                        "transportCall"
+                    ],
+                    "type": "object",
+                    "properties": {
+                        "eventDateTime": {
+                            "format": "date-time",
+                            "description": "Date and time when event was first captured according to ISO8601 (including timezone offset from UTC and with millisecond resolution).",
+                            "type": "string"
+                        },
+                        "eventTypeCode": {
+                            "description": "Describes the type of transaction",
+                            "type": "string"
+                        },
+                        "eventSender": {
+                            "description": "Stena Line Unique Identifier of the system sending the event to Stena Line. Will be assigned to ports by Stena Line.",
+                            "minLength": 1,
+                            "type": "string"
+                        },
+                        "eventOriginator": {
+                            "description": "Originator of the event, used for traceability. Typically contains the user ID of the administrator or ID of the machine who triggered the event. Unique within the eventSender scope. Should not contain personal data according to GDPR privacy.",
+                            "minLength": 1,
+                            "type": "string"
+                        },
+                        "bookingNumber": {
+                            "description": "Stena Line Freight Booking Number",
+                            "minLength": 1,
+                            "type": "string"
+                        },
+                        "unit": {
+                            "description": "Identifier of the unit being shipped",
+                            "required": [
+                                "primaryId"
+                            ],
+                            "type": "object",
+                            "properties": {
+                                "primaryId": {
+                                    "description": "Primary identifier of the unit, i.e. vehicle reg, trailer fleet number, VIN, ILU-code or other",
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "secondaryId": {
+                                    "description": "Additional identifier of the unit i(if available), i.e vehicle reg, trailer fleet number, VIN, ILU-code or other",
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "eventLocation": {
+                            "description": "The physical location at which the event took place",
+                            "required": [
+                                "UNLocationCode",
+                                "facilityCode",
+                                "facilityCodeListProvider"
+                            ],
+                            "type": "object",
+                            "properties": {
+                                "UNLocationCode": {
+                                    "description": "The UN/LOCODE (without whitespace) which the facility resides in ",
+                                    "maxLength": 5,
+                                    "minLength": 5,
+                                    "type": "string"
+                                },
+                                "facilityCode": {
+                                    "description": "Unique Code for the terminal within the facilityCodeListProvider scope",
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "facilityCodeListProvider": {
+                                    "description": "Provider of the Facility Code (SLFT = Stena Line Freight)",
+                                    "type": "string"
+                                },
+                                "locationName": {
+                                    "description": "Name of location according to the sender of the event.",
+                                    "type": "string"
+                                },
+                                "address": {
+                                    "description": "Street/postal address of the main gate  (if no public road - the address for leaving the public road to be used)",
+                                    "required": [
+                                        "address1",
+                                        "country"
+                                    ],
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "address1": {
+                                            "description": "Typically Street Address",
+                                            "minLength": 1,
+                                            "type": "string"
+                                        },
+                                        "address2": {
+                                            "description": "Additional addresslines (if necessary)",
+                                            "type": "string"
+                                        },
+                                        "postCode": {
+                                            "type": "string"
+                                        },
+                                        "city": {
+                                            "type": "string"
+                                        },
+                                        "stateRegion": {
+                                            "type": "string"
+                                        },
+                                        "country": {
+                                            "minLength": 1,
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "latitude": {
+                                    "description": "South = negative, north = positive  (-90.0>=latitiude>=90.0)",
+                                    "maximum": 90,
+                                    "minimum": -90,
+                                    "type": "number"
+                                },
+                                "longitude": {
+                                    "description": "West = negative, East = positive  (-180.0>=longitude>=180.0",
+                                    "maximum": 180,
+                                    "minimum": -180,
+                                    "type": "number"
+                                }
+                            }
+                        },
+                        "attachments": {
+                            "description": "Applicable attachments such as images (proof or identification).",
+                            "type": "array",
+                            "items": {
+                                "required": [
+                                    "url"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "url": {
+                                        "description": "URL from which the file can be downloaded",
+                                        "minLength": 1,
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "description": "Description of file",
+                                        "type": "string"
+                                    },
+                                    "access ": {
+                                        "description": "By what means can the url be accessed ( open = access from internet only by using URL, restricted= some kind of accessrestriction such as password is required for access)",
+                                        "enum": [
+                                            "open",
+                                            "restricted"
+                                        ],
+                                        "type": "string"
+                                    },
+                                    "filename": {
+                                        "description": "filename including file extension",
+                                        "type": "string"
+                                    },
+                                    "size": {
+                                        "description": "Filesize in kilobytes",
+                                        "type": "integer"
+                                    },
+                                    "mime": {
+                                        "description": "File MIME-type ",
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "remarks": {
+                            "description": "Remarks or comments associated with the event. Typically an external booking number",
+                            "type": "string"
+                        },
+                        "move": {
+                            "type": "object"
+                        },
+                        "transportCall": {
+                            "required": [
+                                "vessel"
+                            ],
+                            "type": "object",
+                            "properties": {
+                                "vessel": {
+                                    "required": [
+                                        "vesselIMONumber",
+                                        "stowage"
+                                    ],
+                                    "type": "object",
+                                    "properties": {
+                                        "vesselIMONumber": {
+                                            "description": "Identifier of the vessel",
+                                            "minLength": 1,
+                                            "type": "string"
+                                        },
+                                        "vesselName": {
+                                            "description": "Name of the vessel",
+                                            "type": "string"
+                                        },
+                                        "vesselFlag": {
+                                            "description": "Vessel flag state - country code according to ISO3166 Alpha-2",
+                                            "type": "string"
+                                        },
+                                        "vesselCallSignNumber": {
+                                            "description": "Radio call sign of the vessel",
+                                            "type": "string"
+                                        },
+                                        "stowage": {
+                                            "description": "Where the unit is stowed onboard the vessel",
+                                            "type": "object",
+                                            "properties": {
+                                                "deckLane": {
+                                                    "description": "Identifier for lane within a loading deck",
+                                                    "type": "string"
+                                                },
+                                                "deckZone": {
+                                                    "description": "Area on loading deck covering one or more lanes",
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "example": {
+                "equipmentEvent": {
+                    "eventDateTime": "2021-03-26T10:34:25.235+00:00",
+                    "eventTypeCode": "Load",
+                    "eventSender": "SL-PT-PortOfTrelleborg",
+                    "eventOriginator": "{0001-1234-5678}",
+                    "bookingNumber": "1234567",
+                    "unit": {
+                        "primaryId": "HKPB1121199",
+                        "secondaryId": "String"
+                    },
+                    "eventLocation": {
+                        "UNLocationCode": "SETRG",
+                        "facilityCode": "TREL",
+                        "facilityCodeListProvider": "SLFT",
+                        "locationName": "Port of Trelleborg",
+                        "address": {
+                            "name": "Main Gate",
+                            "address1": "Norra Nyhamnsgatan 5",
+                            "address2": "",
+                            "postCode": "23161",
+                            "city": "Trelleborg",
+                            "stateRegion": "",
+                            "country": "Sweden"
+                        },
+                        "latitude": -90,
+                        "longitude": -180
+                    },
+                    "attachments": [
+                        {
+                            "url": "http://company.com/images/smartgate/pic0001.jpg",
+                            "description": "Right Side 2021-03-26 11:34",
+                            "access ": "open",
+                            "filename": "pic0001.jpg",
+                            "size": 12345,
+                            "mime": "image/jpeg"
+                        }
+                    ],
+                    "remarks": "Lorem Ipsum",
+                    "move": {
+                        "liftTime": "2001-12-17T09:30:47+00:00"
+                    },
+                    "transportCall": {
+                        "vessel": {
+                            "vesselIMONumber": "1234567",
+                            "vesselName": "M/S Skåne",
+                            "vesselFlag": "SE",
+                            "vesselCallSignNumber": "SCAN",
+                            "stowage": {
+                                "deckLane": "String",
+                                "deckZone": "String",
+                                "deckLevel": "String"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "Measurement-Take": {
+            "description": "Schema for Measurement Take v2 (2022-04-30)",
+            "required": [
+                "equipmentEvent"
+            ],
+            "type": "object",
+            "properties": {
+                "equipmentEvent": {
+                    "required": [
+                        "eventDateTime",
+                        "eventTypeCode",
+                        "eventSender",
+                        "eventOriginator",
+                        "bookingNumber",
+                        "eventLocation",
+                        "measurements"
+                    ],
+                    "type": "object",
+                    "properties": {
+                        "eventDateTime": {
+                            "format": "date-time",
+                            "description": "Date and time when event was first captured according to ISO8601 (including timezone offset from UTC and with millisecond resolution).",
+                            "type": "string"
+                        },
+                        "eventTypeCode": {
+                            "description": "Describes the type of transaction",
+                            "type": "string"
+                        },
+                        "eventSender": {
+                            "description": "Stena Line Unique Identifier of the system sending the event to Stena Line. Will be assigned to ports by Stena Line.",
+                            "minLength": 1,
+                            "type": "string"
+                        },
+                        "eventOriginator": {
+                            "description": "Originator of the event, used for traceability. Typically contains the user ID of the administrator or ID of the machine who triggered the event. Unique within the eventSender scope. Should not contain personal data according to GDPR privacy.",
+                            "minLength": 1,
+                            "type": "string"
+                        },
+                        "bookingNumber": {
+                            "description": "Stena Line Freight Booking Number",
+                            "minLength": 1,
+                            "type": "string"
+                        },
+                        "unit": {
+                            "description": "Identifier of the unit being shipped",
+                            "required": [
+                                "primaryId"
+                            ],
+                            "type": "object",
+                            "properties": {
+                                "primaryId": {
+                                    "description": "Primary identifier of the unit, i.e. vehicle reg, trailer fleet number, VIN, ILU-code or other",
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "secondaryId": {
+                                    "description": "Additional identifier of the unit i(if available), i.e vehicle reg, trailer fleet number, VIN, ILU-code or other",
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "eventLocation": {
+                            "description": "The physical location at which the event took place",
+                            "required": [
+                                "UNLocationCode",
+                                "facilityCode",
+                                "facilityCodeListProvider",
+                                "gate"
+                            ],
+                            "type": "object",
+                            "properties": {
+                                "UNLocationCode": {
+                                    "description": "The UN/LOCODE (without whitespace) which the facility resides in ",
+                                    "maxLength": 5,
+                                    "minLength": 5,
+                                    "type": "string"
+                                },
+                                "facilityCode": {
+                                    "description": "Unique Code for the terminal within the facilityCodeListProvider scope",
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "facilityCodeListProvider": {
+                                    "description": "Provider of the Facility Code (SLFT = Stena Line Freight)",
+                                    "type": "string"
+                                },
+                                "locationName": {
+                                    "description": "Name of location according to the sender of the event.",
+                                    "type": "string"
+                                },
+                                "address": {
+                                    "description": "Street/postal address of the main gate  (if no public road - the address for leaving the public road to be used)",
+                                    "required": [
+                                        "address1",
+                                        "country"
+                                    ],
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "address1": {
+                                            "description": "Typically Street Address",
+                                            "minLength": 1,
+                                            "type": "string"
+                                        },
+                                        "address2": {
+                                            "description": "Additional addresslines (if necessary)",
+                                            "type": "string"
+                                        },
+                                        "postCode": {
+                                            "type": "string"
+                                        },
+                                        "city": {
+                                            "type": "string"
+                                        },
+                                        "stateRegion": {
+                                            "type": "string"
+                                        },
+                                        "country": {
+                                            "minLength": 1,
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "latitude": {
+                                    "description": "South = negative, north = positive  (-90.0>=latitiude>=90.0)",
+                                    "maximum": 90,
+                                    "minimum": -90,
+                                    "type": "number"
+                                },
+                                "longitude": {
+                                    "description": "West = negative, East = positive  (-180.0>=longitude>=180.0",
+                                    "maximum": 180,
+                                    "minimum": -180,
+                                    "type": "number"
+                                },
+                                "gate": {
+                                    "description": "Unique within UNLocationCode+Facilitycode-scope",
+                                    "minLength": 1,
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "attachments": {
+                            "description": "Applicable attachments such as images (proof or identification).",
+                            "type": "array",
+                            "items": {
+                                "required": [
+                                    "url"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "url": {
+                                        "description": "URL from which the file can be downloaded",
+                                        "minLength": 1,
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "description": "Description of file",
+                                        "type": "string"
+                                    },
+                                    "access ": {
+                                        "description": "By what means can the url be accessed ( open = access from internet only by using URL, restricted= some kind of accessrestriction such as password is required for access)",
+                                        "enum": [
+                                            "open",
+                                            "restricted"
+                                        ],
+                                        "type": "string"
+                                    },
+                                    "filename": {
+                                        "description": "filename including file extension",
+                                        "type": "string"
+                                    },
+                                    "size": {
+                                        "description": "Filesize in kilobytes",
+                                        "type": "integer"
+                                    },
+                                    "mime": {
+                                        "description": "File MIME-type ",
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "remarks": {
+                            "description": "Remarks or comments associated with the event. Typically an external booking number",
+                            "type": "string"
+                        },
+                        "measurements": {
+                            "description": "Measured size and weight",
+                            "uniqueItems": true,
+                            "type": "array",
+                            "items": {
+                                "title": "Measurement",
+                                "description": "Measurement is a key-value object",
+                                "required": [
+                                    "type",
+                                    "value"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "type": {
+                                        "description": "Type of measurement",
+                                        "minLength": 1,
+                                        "enum": [
+                                            "Weight",
+                                            "Height",
+                                            "Length",
+                                            "Width"
+                                        ],
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "description": "Measures in size (width, length, height) are in metres with two decimals. Measures in weight are in kilograms.",
+                                        "type": "number"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "example": {
+                "equipmentEvent": {
+                    "eventDateTime": "2021-03-26T10:34:25.235+00:00",
+                    "eventTypeCode": "MeasurementTake",
+                    "eventSender": "SL-PT-PortOfTrelleborg",
+                    "eventOriginator": "{0001-1234-5678}",
+                    "bookingNumber": "1234567",
+                    "unit": {
+                        "primaryId": "HKPB1121199",
+                        "secondaryId": "String"
+                    },
+                    "eventLocation": {
+                        "UNLocationCode": "SETRG",
+                        "facilityCode": "TREL",
+                        "facilityCodeListProvider": "SLFT",
+                        "locationName": "Port of Trelleborg",
+                        "address": {
+                            "name": "Main Gate",
+                            "address1": "Norra Nyhamnsgatan 5",
+                            "address2": "",
+                            "postCode": "23161",
+                            "city": "Trelleborg",
+                            "stateRegion": "",
+                            "country": "Sweden"
+                        },
+                        "latitude": -90,
+                        "longitude": -180,
+                        "gate": "Gate001"
+                    },
+                    "attachments": [
+                        {
+                            "url": "http://company.com/images/smartgate/pic0001.jpg",
+                            "description": "Right Side 2021-03-26 11:34",
+                            "access ": "open",
+                            "filename": "pic0001.jpg",
+                            "size": 12345,
+                            "mime": "image/jpeg"
+                        }
+                    ],
+                    "remarks": "Lorem Ipsum",
+                    "measurements": [
+                        {
+                            "type": "Weight",
+                            "value": 0.1
+                        }
+                    ]
+                }
+            }
+        },
+        "Unload": {
+            "description": "Schema for Unload v2 (2022-04-30)",
+            "required": [
+                "equipmentEvent"
+            ],
+            "type": "object",
+            "properties": {
+                "equipmentEvent": {
+                    "required": [
+                        "eventDateTime",
+                        "eventTypeCode",
+                        "eventSender",
+                        "eventOriginator",
+                        "bookingNumber",
+                        "eventLocation",
+                        "transportCall"
+                    ],
+                    "type": "object",
+                    "properties": {
+                        "eventDateTime": {
+                            "format": "date-time",
+                            "description": "Date and time when event was first captured according to ISO8601 (including timezone offset from UTC and with millisecond resolution).",
+                            "type": "string"
+                        },
+                        "eventTypeCode": {
+                            "description": "Describes the type of transaction",
+                            "type": "string"
+                        },
+                        "eventSender": {
+                            "description": "Stena Line Unique Identifier of the system sending the event to Stena Line. Will be assigned to ports by Stena Line.",
+                            "minLength": 1,
+                            "type": "string"
+                        },
+                        "eventOriginator": {
+                            "description": "Originator of the event, used for traceability. Typically contains the user ID of the administrator or ID of the machine who triggered the event. Unique within the eventSender scope. Should not contain personal data according to GDPR privacy.",
+                            "minLength": 1,
+                            "type": "string"
+                        },
+                        "bookingNumber": {
+                            "description": "Stena Line Freight Booking Number",
+                            "minLength": 1,
+                            "type": "string"
+                        },
+                        "unit": {
+                            "description": "Identifier of the unit being shipped",
+                            "required": [
+                                "primaryId"
+                            ],
+                            "type": "object",
+                            "properties": {
+                                "primaryId": {
+                                    "description": "Primary identifier of the unit, i.e. vehicle reg, trailer fleet number, VIN, ILU-code or other",
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "secondaryId": {
+                                    "description": "Additional identifier of the unit i(if available), i.e vehicle reg, trailer fleet number, VIN, ILU-code or other",
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "eventLocation": {
+                            "description": "The physical location at which the event took place",
+                            "required": [
+                                "UNLocationCode",
+                                "facilityCode",
+                                "facilityCodeListProvider"
+                            ],
+                            "type": "object",
+                            "properties": {
+                                "UNLocationCode": {
+                                    "description": "The UN/LOCODE (without whitespace) which the facility resides in ",
+                                    "maxLength": 5,
+                                    "minLength": 5,
+                                    "type": "string"
+                                },
+                                "facilityCode": {
+                                    "description": "Unique Code for the terminal within the facilityCodeListProvider scope",
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "facilityCodeListProvider": {
+                                    "description": "Provider of the Facility Code (SLFT = Stena Line Freight)",
+                                    "type": "string"
+                                },
+                                "locationName": {
+                                    "description": "Name of location according to the sender of the event.",
+                                    "type": "string"
+                                },
+                                "address": {
+                                    "description": "Street/postal address of the main gate  (if no public road - the address for leaving the public road to be used)",
+                                    "required": [
+                                        "address1",
+                                        "country"
+                                    ],
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "address1": {
+                                            "description": "Typically Street Address",
+                                            "minLength": 1,
+                                            "type": "string"
+                                        },
+                                        "address2": {
+                                            "description": "Additional addresslines (if necessary)",
+                                            "type": "string"
+                                        },
+                                        "postCode": {
+                                            "type": "string"
+                                        },
+                                        "city": {
+                                            "type": "string"
+                                        },
+                                        "stateRegion": {
+                                            "type": "string"
+                                        },
+                                        "country": {
+                                            "minLength": 1,
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "latitude": {
+                                    "description": "South = negative, north = positive  (-90.0>=latitiude>=90.0)",
+                                    "maximum": 90,
+                                    "minimum": -90,
+                                    "type": "number"
+                                },
+                                "longitude": {
+                                    "description": "West = negative, East = positive  (-180.0>=longitude>=180.0",
+                                    "maximum": 180,
+                                    "minimum": -180,
+                                    "type": "number"
+                                },
+                                "yard": {
+                                    "description": "Physcial location/area in the yard within the Facility where the unit will be placed past the gateIn",
+                                    "type": "object"
+                                }
+                            }
+                        },
+                        "attachments": {
+                            "description": "Applicable attachments such as images (proof or identification).",
+                            "type": "array",
+                            "items": {
+                                "required": [
+                                    "url"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "url": {
+                                        "description": "URL from which the file can be downloaded",
+                                        "minLength": 1,
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "description": "Description of file",
+                                        "type": "string"
+                                    },
+                                    "access ": {
+                                        "description": "By what means can the url be accessed ( open = access from internet only by using URL, restricted= some kind of accessrestriction such as password is required for access)",
+                                        "enum": [
+                                            "open",
+                                            "restricted"
+                                        ],
+                                        "type": "string"
+                                    },
+                                    "filename": {
+                                        "description": "filename including file extension",
+                                        "type": "string"
+                                    },
+                                    "size": {
+                                        "description": "Filesize in kilobytes",
+                                        "type": "integer"
+                                    },
+                                    "mime": {
+                                        "description": "File MIME-type ",
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "remarks": {
+                            "description": "Remarks or comments associated with the event. Typically an external booking number",
+                            "type": "string"
+                        },
+                        "move": {
+                            "type": "object"
+                        },
+                        "transportCall": {
+                            "required": [
+                                "vessel"
+                            ],
+                            "type": "object",
+                            "properties": {
+                                "vessel": {
+                                    "required": [
+                                        "vesselIMONumber"
+                                    ],
+                                    "type": "object",
+                                    "properties": {
+                                        "vesselIMONumber": {
+                                            "minLength": 1,
+                                            "type": "string"
+                                        },
+                                        "vesselName": {
+                                            "type": "string"
+                                        },
+                                        "vesselFlag": {
+                                            "type": "string"
+                                        },
+                                        "vesselCallSignNumber": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "example": {
+                "equipmentEvent": {
+                    "eventDateTime": "2021-03-26T10:34:25.235+00:00",
+                    "eventTypeCode": "UnLoad",
+                    "eventSender": "SL-PT-PortOfTrelleborg",
+                    "eventOriginator": "{0001-1234-5678}",
+                    "bookingNumber": "1234567",
+                    "unit": {
+                        "primaryId": "HKPB1121199",
+                        "secondaryId": "String"
+                    },
+                    "eventLocation": {
+                        "UNLocationCode": "SETRG",
+                        "facilityCode": "TREL",
+                        "facilityCodeListProvider": "SLFT",
+                        "locationName": "Port of Trelleborg",
+                        "address": {
+                            "name": "Main Gate",
+                            "address1": "Norra Nyhamnsgatan 5",
+                            "address2": "",
+                            "postCode": "23161",
+                            "city": "Trelleborg",
+                            "stateRegion": "",
+                            "country": "Sweden"
+                        },
+                        "latitude": -90,
+                        "longitude": -180,
+                        "yard": {
+                            "lane": "String"
+                        }
+                    },
+                    "attachments": [
+                        {
+                            "url": "http://company.com/images/smartgate/pic0001.jpg",
+                            "description": "Right Side 2021-03-26 11:34",
+                            "access ": "open",
+                            "filename": "pic0001.jpg",
+                            "size": 12345,
+                            "mime": "image/jpeg"
+                        }
+                    ],
+                    "remarks": "Lorem Ipsum",
+                    "move": {
+                        "liftTime": "2001-12-17T09:30:47+00:00"
+                    },
+                    "transportCall": {
+                        "vessel": {
+                            "vesselIMONumber": "1234567",
+                            "vesselName": "M/S Skåne",
+                            "vesselFlag": "SE",
+                            "vesselCallSignNumber": "SCAN"
+                        }
+                    }
+                }
+            }
+        },
+        "Ready-For-Pickup": {
+            "description": "Schema for Ready for Pickup v2 (2022-04-30)",
+            "required": [
+                "equipmentEvent"
+            ],
+            "type": "object",
+            "properties": {
+                "equipmentEvent": {
+                    "required": [
+                        "eventDateTime",
+                        "eventTypeCode",
+                        "eventSender",
+                        "eventOriginator",
+                        "bookingNumber",
+                        "eventLocation",
+                        "readyTime"
+                    ],
+                    "type": "object",
+                    "properties": {
+                        "eventDateTime": {
+                            "format": "date-time",
+                            "description": "Date and time when event was first captured according to ISO8601 (including timezone offset from UTC and with millisecond resolution).",
+                            "type": "string"
+                        },
+                        "eventTypeCode": {
+                            "description": "Describes the type of transaction",
+                            "type": "string"
+                        },
+                        "eventSender": {
+                            "description": "Stena Line Unique Identifier of the system sending the event to Stena Line. Will be assigned to ports by Stena Line.",
+                            "minLength": 1,
+                            "type": "string"
+                        },
+                        "eventOriginator": {
+                            "description": "Originator of the event, used for traceability. Typically contains the user ID of the administrator or ID of the machine who triggered the event. Unique within the eventSender scope. Should not contain personal data according to GDPR privacy.",
+                            "minLength": 1,
+                            "type": "string"
+                        },
+                        "bookingNumber": {
+                            "description": "Stena Line Freight Booking Number",
+                            "minLength": 1,
+                            "type": "string"
+                        },
+                        "unit": {
+                            "description": "Identifier of the unit being shipped",
+                            "required": [
+                                "primaryId"
+                            ],
+                            "type": "object",
+                            "properties": {
+                                "primaryId": {
+                                    "description": "Primary identifier of the unit, i.e. vehicle reg, trailer fleet number, VIN, ILU-code or other",
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "secondaryId": {
+                                    "description": "Additional identifier of the unit i(if available), i.e vehicle reg, trailer fleet number, VIN, ILU-code or other",
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "eventLocation": {
+                            "description": "The physical location where the unit can be picked up",
+                            "required": [
+                                "UNLocationCode",
+                                "facilityCode",
+                                "facilityCodeListProvider"
+                            ],
+                            "type": "object",
+                            "properties": {
+                                "UNLocationCode": {
+                                    "description": "The UN/LOCODE (without whitespace) which the facility resides in ",
+                                    "maxLength": 5,
+                                    "minLength": 5,
+                                    "type": "string"
+                                },
+                                "facilityCode": {
+                                    "description": "Unique Code for the terminal within the facilityCodeListProvider scope",
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "facilityCodeListProvider": {
+                                    "description": "Provider of the Facility Code (SLFT = Stena Line Freight)",
+                                    "type": "string"
+                                },
+                                "locationName": {
+                                    "description": "Name of location according to the sender of the event.",
+                                    "type": "string"
+                                },
+                                "address": {
+                                    "description": "Street/postal address of the main gate  (if no public road - the address for leaving the public road to be used)",
+                                    "required": [
+                                        "address1",
+                                        "country"
+                                    ],
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "address1": {
+                                            "description": "Typically Street Address",
+                                            "minLength": 1,
+                                            "type": "string"
+                                        },
+                                        "address2": {
+                                            "description": "Additional addresslines (if necessary)",
+                                            "type": "string"
+                                        },
+                                        "postCode": {
+                                            "type": "string"
+                                        },
+                                        "city": {
+                                            "type": "string"
+                                        },
+                                        "stateRegion": {
+                                            "type": "string"
+                                        },
+                                        "country": {
+                                            "minLength": 1,
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "latitude": {
+                                    "description": "South = negative, north = positive  (-90.0>=latitiude>=90.0)",
+                                    "maximum": 90,
+                                    "minimum": -90,
+                                    "type": "number"
+                                },
+                                "longitude": {
+                                    "description": "West = negative, East = positive  (-180.0>=longitude>=180.0",
+                                    "maximum": 180,
+                                    "minimum": -180,
+                                    "type": "number"
+                                },
+                                "yard": {
+                                    "description": "Physcial location/area in the yard within the Facility where the unit will be placed past the gateIn",
+                                    "type": "object"
+                                }
+                            }
+                        },
+                        "attachments": {
+                            "description": "Applicable attachments such as images (proof or identification).",
+                            "type": "array",
+                            "items": {
+                                "required": [
+                                    "url"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "url": {
+                                        "description": "URL from which the file can be downloaded",
+                                        "minLength": 1,
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "description": "Description of file",
+                                        "type": "string"
+                                    },
+                                    "access ": {
+                                        "description": "By what means can the url be accessed ( open = access from internet only by using URL, restricted= some kind of accessrestriction such as password is required for access)",
+                                        "enum": [
+                                            "open",
+                                            "restricted"
+                                        ],
+                                        "type": "string"
+                                    },
+                                    "filename": {
+                                        "description": "filename including file extension",
+                                        "type": "string"
+                                    },
+                                    "size": {
+                                        "description": "Filesize in kilobytes",
+                                        "type": "integer"
+                                    },
+                                    "mime": {
+                                        "description": "File MIME-type ",
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "remarks": {
+                            "description": "Remarks or comments associated with the event. Typically an external booking number",
+                            "type": "string"
+                        },
+                        "readyTime": {
+                            "format": "date-time",
+                            "description": "The earliest time from which the unit was ready for pickup. No future times allowed.",
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "example": {
+                "equipmentEvent": {
+                    "eventDateTime": "2021-03-26T10:34:25.235+00:00",
+                    "eventTypeCode": "ReadyForPickup",
+                    "eventSender": "SL-PT-PortOfTrelleborg",
+                    "eventOriginator": "{0001-1234-5678}",
+                    "bookingNumber": "1234567",
+                    "unit": {
+                        "primaryId": "HKPB1121199",
+                        "secondaryId": "String"
+                    },
+                    "eventLocation": {
+                        "UNLocationCode": "SETRG",
+                        "facilityCode": "TREL",
+                        "facilityCodeListProvider": "SLFT",
+                        "locationName": "Port of Trelleborg",
+                        "address": {
+                            "name": "Main Gate",
+                            "address1": "Norra Nyhamnsgatan 5",
+                            "address2": "",
+                            "postCode": "23161",
+                            "city": "Trelleborg",
+                            "stateRegion": "",
+                            "country": "Sweden"
+                        },
+                        "latitude": -90,
+                        "longitude": -180,
+                        "yard": {
+                            "lane": "String"
+                        }
+                    },
+                    "attachments": [
+                        {
+                            "url": "http://company.com/images/smartgate/pic0001.jpg",
+                            "description": "Right Side 2021-03-26 11:34",
+                            "access ": "open",
+                            "filename": "pic0001.jpg",
+                            "size": 12345,
+                            "mime": "image/jpeg"
+                        }
+                    ],
+                    "remarks": "Lorem Ipsum",
+                    "readyTime": "2021-03-26T10:29:25.235+00:00"
+                }
+            }
+        }
+    },
+    "tags": []
+}
